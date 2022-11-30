@@ -19,34 +19,42 @@ main {
 /* WRAPPER */
 #wrapper {
     display: flex;
+    height: calc(100vh - 100px);
     max-width: 1300px;
     margin: 0 auto;
     position: relative;
     bottom: 100px;
-    /* DEBUG */
-    height: 750px;
-    background-color: aqua;
 }
 
 /* sezione contatti */
 #contatti {
     width: 500px;
-    /* DEBUG */
-    border-right: 1px solid black
+    border-right: 1px solid rgb(185, 185, 185);
 }
 
-.topbar {
+/* barra contatti */
+.bar {
     display: flex;
-    justify-content: space-between;
     padding: 10px;
     background-color: rgb(234, 234, 234);
 }
 
-.topbar_profile_pic img {
-    vertical-align: middle;
+.bar.top {
+    justify-content: space-between;
+}
+
+.bar_profile_pic {
+    display: flex;
+    align-items: center;
+}
+
+.avatar_img {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 50%;  
+}
+
+.avatar_img.user {
     margin-right: 5px;
 }
 
@@ -72,7 +80,7 @@ main {
 }
 
 /* barra di ricerca chat */
-#search {
+#search_bar {
     display: flex;
     padding: 5px;
     background-color: rgb(250, 250, 250);
@@ -88,7 +96,7 @@ main {
     color: rgb(185, 185, 185);
 }
 
-#search_bar {
+.user_input {
     width: 80%;
     border: 1px solid rgb(225, 225, 225);
     padding-left: 10px;
@@ -111,14 +119,49 @@ main {
     background-color: rgb(233, 235, 235);
 }
 
-.chat img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
 
 /* sezione chat */
 #chat {
     flex-grow: 1;
 }
+
+/* chat bar */
+.avatar_img.contact {
+    margin-right: 15px;
+}
+
+/* contenuto chat */
+#chat_content {
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+}
+
+#chat_content_container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    /* DEBUG */
+    background-color: red;
+}
+
+/* sendbar */
+.send_icons {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: rgb(101, 101, 101);
+}
+
+.send_icons.right {
+    justify-content: space-around;
+}
+
+.user_input.send {
+    height: 50px;
+}
+

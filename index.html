@@ -15,16 +15,22 @@
         <header></header>
 
         <main>
+
             <!-- WRAPPER -->
             <div id="wrapper">
+
                 <!-- sezione contatti -->
                 <section id="contatti">
-                    <div class="topbar">
 
-                        <div class="topbar_profile_pic">
-                            <img src="img/avatar_io.jpg" alt="user avatar">
+                    <!-- contatti bar -->
+                    <div class="bar top">
+
+                        <div class="bar_profile_pic">
+                            <img class="avatar_img user" src="img/avatar_io.jpg" alt="user avatar">
                             <span>Sofia</span>
                         </div>  
+
+                        <div class="icons"></div>
 
                     </div>
 
@@ -43,28 +49,74 @@
                     </div>
 
                     <!-- barra di ricerca chat -->
-                    <div id="search">
+                    <div id="search_bar">
+
                         <div id="magnifyng_glass" for="search_bar">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <input id="search_bar" type="text" placeholder="cerca o inizia una nuova chat">
+
+                        <input class="user_input" type="text" placeholder="cerca o inizia una nuova chat">
+                        
                     </div>
 
                     <!-- lista chat -->
                     <div id="lista_chat">
+
                         <div class="chat">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img class="avatar_img contact" src="img/avatar_1.jpg" alt="">
+
                             <div class="text">
                                 <h4>Michele</h4>
                                 <span>Ultimo messaggio inviato</span>
                             </div>
                         </div>
+
                     </div>
                 </section>
 
+
                 <!-- sezione chat -->
                 <section id="chat">
-                    
+
+                    <!-- chat bar -->
+                    <div class="bar top">
+
+                        <div class="bar_profile_pic">
+                            <img class="avatar_img contact" src="img/avatar_1.jpg" alt="">
+
+                            <div class="text">
+                                <h4>Michele</h4>
+                                <span>Ultimo accesso oggi alle 12:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="icons"></div>
+
+                    </div>
+
+                    <!-- contenuto chat -->
+                    <div id="chat_content">
+                        <div id="chat_content_container">
+                            <div id="contact_mex"></div>
+                            <div id="user_mex"></div>
+                        </div>
+                    </div>
+
+                    <!-- sendbar -->
+                    <div class="bar">
+
+                        <div class="send_icons">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+
+                        <input class="user_input send" type="text">
+
+                        <div class="send_icons right">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+
                 </section>
             </div>
         </main>
