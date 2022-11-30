@@ -19,7 +19,7 @@ main {
 /* WRAPPER */
 #wrapper {
     display: flex;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     position: relative;
     bottom: 100px;
@@ -30,7 +30,7 @@ main {
 
 /* sezione contatti */
 #contatti {
-    width: 400px;
+    width: 500px;
     /* DEBUG */
     border-right: 1px solid black
 }
@@ -44,10 +44,78 @@ main {
 
 .topbar_profile_pic img {
     vertical-align: middle;
-    margin-right: 5px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* attiva notifiche */
+#notifiche {
+    display: flex;
+    align-items: center;
+    background-color: rgb(142, 218, 252);
+    padding: 15px 25px;
+}
+
+#bell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: rgb(142, 218, 252);
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* barra di ricerca chat */
+#search {
+    display: flex;
+    padding: 5px;
+    background-color: rgb(250, 250, 250);
+    height: 45px;
+}
+
+#magnifyng_glass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid rgb(225, 225, 225);
+    color: rgb(185, 185, 185);
+}
+
+#search_bar {
+    width: 80%;
+    border: 1px solid rgb(225, 225, 225);
+    padding-left: 10px;
+}
+
+/* lista chat */
+#lista_chat {
+    height: calc(100% - 195px);
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.chat {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid rgb(225, 225, 225);;
+}
+
+.chat:hover {
+    background-color: rgb(233, 235, 235);
+}
+
+.chat img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
 }
 
 /* sezione chat */
