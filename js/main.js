@@ -104,24 +104,36 @@ methods: {
     },
 
     send(index) {
-        if (this.newMessage === "") {
-            
-        } else {
-            this.contacts[index].messages.push(
-
-                {   
-                    //date: Date(),
-                    message: this.newMessage,
-                    status: 'sent'
-                }
-            
-            );
-        }
         
+        this.contacts[index].messages.push(
+
+            {   
+                //date: Date(),
+                message: this.newMessage,
+                status: 'sent'
+            },
+    
+        );
         
         this.newMessage = "";
+        
+        setTimeout(this.answerInterval(index), 1000);
           
-    }
+    },
+
+    answerInterval(index) {
+
+        this.contacts[index].messages.push(
+
+            {   
+                //date: Date(),
+                message: 'Vabene',
+                status: 'received'
+            },
+    
+        );
+    },
+
 }
 
 }).mount('#app')
