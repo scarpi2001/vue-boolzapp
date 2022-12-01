@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Boolzapp</title>
 </head>
+
 <body>
     
     <div id="app">
@@ -26,11 +30,15 @@
                     <div class="bar top">
 
                         <div class="bar_profile_pic">
-                            <img class="avatar_img user" src="img/avatar_io.jpg" alt="user avatar">
-                            <span>Sofia</span>
+                            <img class="avatar_img user" src="img/user.jpg">
+                            <h4>User</h4>
                         </div>  
 
-                        <div class="icons"></div>
+                        <div class="icons top">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
 
                     </div>
 
@@ -62,7 +70,7 @@
                     <!-- lista chat -->
                     <div id="lista_chat">
 
-                        <div class="chat" v-for="(contact,index) in contacts" @click="currentChat(index)">
+                        <div class="chats" v-for="(contact,index) in contacts" @click="currentChat(index)">
                             <img class="avatar_img contact" :src="contact.image" alt="contact.name">
 
                             <div class="text">
@@ -86,16 +94,20 @@
 
                             <div class="text">
                                 <h4>{{contacts[active].name}}</h4>
-                                <span>Ultimo accesso oggi alle 12:00</span>
+                                <span>{{contacts[active].lastSeen}}</span>
                             </div>
                         </div>
                         
-                        <div class="icons"></div>
+                        <div class="icons top">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
 
                     </div>
 
                     <!-- contenuto chat -->
-                    <div id="chat_content">
+                    <div class="chat_content" :class="active === 0 ? 'start' : '' ">
                         
                         <div class="message" v-for="mex in contacts[active].messages" :class="mex.status === 'sent' ? 'sent' : 'received' ">
                             <div class="mex">{{mex.message}}</div>
@@ -105,10 +117,10 @@
                     </div>
 
                     <!-- sendbar -->
-                    <div class="bar">
+                    <div class="bar" v-if="active > 0">
 
-                        <div class="send_icons">
-                            <i class="fa-regular fa-face-smile icons"></i>
+                        <div class="icons bottom">
+                            <i class="fa-regular fa-face-smile"></i>
                         </div>
 
                         <input class="user_input send" type="text" placeholder="Scrivi un messaggio"
@@ -116,10 +128,10 @@
                             v-model="newMessage"
                         >
 
-                        <div class="send_icons right">
-                            <i class="fa-solid fa-paper-plane icons" @click="send(active)">
+                        <div class="icons bottom">
+                            <i class="fa-solid fa-paper-plane" @click="send(active)">
                             </i>
-                            <i class="fa-solid fa-microphone icons"></i>
+                            <i class="fa-solid fa-microphone"></i>
                         </div>
                     </div>
 
@@ -128,11 +140,6 @@
         </main>
 
     </div>
-
-    
-
-    
-
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

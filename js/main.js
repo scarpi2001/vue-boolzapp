@@ -4,13 +4,28 @@ createApp({
 data() {
     return {
         active: 0,
+        newMessage: "",
         contacts: [
+            {
+                name: 'Boolzapp Web',
+                image: 'img/Boolzapp.jpg',
+                messages: [
+                    {
+                        message: 'Benvenuto su Boolzapp Web',
+                        status: 'received'
+                    },
+                    {
+                        message: 'Clicca su una chat per iniziare una conversazione!',
+                        status: 'received'
+                    },
+                ],
+            },
             {
                 name: 'Michele',
                 avatar: '_1',
                 visible: false,
                 image: 'img/avatar_1.jpg',
-                newMessage: "",
+                lastSeen: 'Ultimo accesso alle 12:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -34,6 +49,7 @@ data() {
                 avatar: '_2',
                 visible: true,
                 image: 'img/avatar_2.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -57,6 +73,7 @@ data() {
                 avatar: '_3',
                 visible: true,
                 image: 'img/avatar_3.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -80,6 +97,7 @@ data() {
                 avatar: '_4',
                 visible: true,
                 image: 'img/avatar_4.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -117,7 +135,7 @@ methods: {
         
         this.newMessage = "";
         
-        setTimeout(this.answerInterval(index), 1000);
+        setTimeout( () => { this.answerInterval(index) }, 1000);
           
     },
 
@@ -132,7 +150,7 @@ methods: {
             },
     
         );
-    },
+    }
 
 }
 
