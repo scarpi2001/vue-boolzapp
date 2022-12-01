@@ -58,6 +58,10 @@ main {
     margin-right: 5px;
 }
 
+.icons {
+    cursor: pointer;
+}
+
 /* attiva notifiche */
 #notifiche {
     display: flex;
@@ -149,6 +153,7 @@ main {
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .sent {
@@ -158,6 +163,16 @@ main {
 
 .received {
     background-color: #fff;
+}
+
+.mex {
+    margin-bottom: 5px;
+}
+.date {
+    font-size: 10px;
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
 }
 
 /* sendbar */

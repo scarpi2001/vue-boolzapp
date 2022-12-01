@@ -8,8 +8,9 @@ data() {
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: true,
+                visible: false,
                 image: 'img/avatar_1.jpg',
+                newMessage: "",
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -101,6 +102,26 @@ methods: {
     currentChat(index) {
         this.active = index;   
     },
+
+    send(index) {
+        if (this.newMessage === "") {
+            
+        } else {
+            this.contacts[index].messages.push(
+
+                {   
+                    //date: Date(),
+                    message: this.newMessage,
+                    status: 'sent'
+                }
+            
+            );
+        }
+        
+        
+        this.newMessage = "";
+          
+    }
 }
 
 }).mount('#app')

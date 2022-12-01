@@ -98,7 +98,8 @@
                     <div id="chat_content">
                         
                         <div class="message" v-for="mex in contacts[active].messages" :class="mex.status === 'sent' ? 'sent' : 'received' ">
-                            {{mex.message}}
+                            <div class="mex">{{mex.message}}</div>
+                            <span class="date">{{mex.date}}</span>
                         </div>
                         
                     </div>
@@ -107,14 +108,17 @@
                     <div class="bar">
 
                         <div class="send_icons">
-                            <i class="fa-regular fa-face-smile"></i>
+                            <i class="fa-regular fa-face-smile icons"></i>
                         </div>
 
-                        <input class="user_input send" type="text" placeholder="Scrivi un messaggio">
+                        <input class="user_input send" type="text" placeholder="Scrivi un messaggio"
+                            @KeyUp.enter="send(active)" 
+                            v-model="newMessage"
+                        >
 
                         <div class="send_icons right">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <i class="fa-solid fa-microphone"></i>
+                            <i class="fa-solid fa-paper-plane icons" @click="send(active)"></i>
+                            <i class="fa-solid fa-microphone icons"></i>
                         </div>
                     </div>
 
