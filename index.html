@@ -43,7 +43,7 @@
 
                         <div class="text">
                             <div>Ricevi notifiche messaggio</div> 
-                            <a href="#">Attiva notifiche desktop</a>
+                            <a id="attiva_notifiche" href="#">Attiva notifiche desktop</a>
                         </div>
                     
                     </div>
@@ -62,11 +62,11 @@
                     <!-- lista chat -->
                     <div id="lista_chat">
 
-                        <div class="chat">
-                            <img class="avatar_img contact" src="img/avatar_1.jpg" alt="">
+                        <div class="chat" v-for="(contact,index) in contacts">
+                            <img class="avatar_img contact" :src="contact.image" alt="contact.name">
 
                             <div class="text">
-                                <h4>Michele</h4>
+                                <h4>{{contact.name}}</h4>
                                 <span>Ultimo messaggio inviato</span>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                 <!-- sezione chat -->
                 <section id="chat">
 
-                    <!-- chat bar -->
+                    <!-- chat topbar -->
                     <div class="bar top">
 
                         <div class="bar_profile_pic">
@@ -96,10 +96,11 @@
 
                     <!-- contenuto chat -->
                     <div id="chat_content">
-                        <div id="chat_content_container">
-                            <div id="contact_mex"></div>
-                            <div id="user_mex"></div>
+                        
+                        <div class="message" v-for="mex in contacts[active].messages" :class="mex.status === 'sent' ? 'sent' : 'received' ">
+                            {{mex.message}}
                         </div>
+                        
                     </div>
 
                     <!-- sendbar -->
@@ -109,7 +110,7 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
 
-                        <input class="user_input send" type="text">
+                        <input class="user_input send" type="text" placeholder="Scrivi un messaggio">
 
                         <div class="send_icons right">
                             <i class="fa-solid fa-paper-plane"></i>

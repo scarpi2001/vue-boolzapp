@@ -28,7 +28,7 @@ main {
 
 /* sezione contatti */
 #contatti {
-    width: 500px;
+    min-width: 500px;
     border-right: 1px solid rgb(185, 185, 185);
 }
 
@@ -77,6 +77,10 @@ main {
     border-radius: 50%;
     font-size: 20px;
     margin-right: 5px;
+}
+
+#attiva_notifiche {
+    color: rgb(105, 105, 105);
 }
 
 /* barra di ricerca chat */
@@ -132,19 +136,28 @@ main {
 
 /* contenuto chat */
 #chat_content {
+    display: flex;
+    flex-direction: column;
     height: calc(100% - 140px);
     background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+    padding: 20px 50px;
 }
 
-#chat_content_container {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    overflow-y: auto;
-    /* DEBUG */
-    background-color: red;
+.message {
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.sent {
+    background-color: rgb(213, 249, 186);
+    align-self: flex-end;
+}
+
+.received {
+    background-color: #fff;
 }
 
 /* sendbar */
