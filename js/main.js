@@ -94,6 +94,13 @@ data() {
             }
         ]
         
-    }
+    }   
+},
+
+methods: {
+    currentChat(index) {
+        this.active = index;   
+    },
 }
+
 }).mount('#app')

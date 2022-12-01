@@ -62,7 +62,7 @@
                     <!-- lista chat -->
                     <div id="lista_chat">
 
-                        <div class="chat" v-for="(contact,index) in contacts">
+                        <div class="chat" v-for="(contact,index) in contacts" @click="currentChat(index)">
                             <img class="avatar_img contact" :src="contact.image" alt="contact.name">
 
                             <div class="text">
@@ -82,10 +82,10 @@
                     <div class="bar top">
 
                         <div class="bar_profile_pic">
-                            <img class="avatar_img contact" src="img/avatar_1.jpg" alt="">
+                            <img class="avatar_img contact" :src="contacts[active].image" alt="contacts[active].name">
 
                             <div class="text">
-                                <h4>Michele</h4>
+                                <h4>{{contacts[active].name}}</h4>
                                 <span>Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
