@@ -4,6 +4,7 @@ createApp({
 data() {
     return {
         active: 0,
+        isActive: false,
         newMessage: "",
         newSearch: "",
         contacts: [
@@ -196,25 +197,34 @@ data() {
 
 methods: {
     currentChat(index) {
-        this.active = index;   
+        this.active = index;  
+        this.isActive = true; 
+    },
+
+    back() {
+        this.isActive = false;
     },
 
     send(index) {
         
-        this.contacts[index].messages.push(
+        if (this.newMessage) {
 
-            {   
-                //date: Date(),
-                message: this.newMessage,
-                status: 'sent'
-            },
-    
-        );
+            this.contacts[index].messages.push(
+
+                {   
+                    //date: Date(),
+                    message: this.newMessage,
+                    status: 'sent'
+                },
         
-        this.newMessage = "";
+            );
+            
+            this.newMessage = "";
+            
+            setTimeout( () => { this.answerInterval(index) }, 1000);
+
+        }
         
-        setTimeout( () => { this.answerInterval(index) }, 1000);
-          
     },
 
     answerInterval(index) {

@@ -24,7 +24,7 @@
             <div id="wrapper">
 
                 <!-- sezione contatti -->
-                <section id="contatti">
+                <section class="contatti" :class="isActive === true ? 'hidden' : 'active' ">
 
                     <!-- contatti bar -->
                     <div class="bar top">
@@ -85,7 +85,7 @@
 
 
                 <!-- sezione chat -->
-                <section id="chat">
+                <section class="chat_section" :class="isActive === true ? 'active' : 'hidden' ">
 
                     <!-- chat topbar -->
                     <div class="bar top">
@@ -103,6 +103,10 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-arrow-left" @click="back"></i>
                         </div>
 
                     </div>
@@ -130,7 +134,7 @@
                         >
 
                         <div class="icons bottom">
-                            <i class="fa-solid fa-paper-plane" @click="send(active)">
+                            <i v-show="newMessage" class="fa-solid fa-paper-plane" @click="send(active)">
                             </i>
                             <i class="fa-solid fa-microphone"></i>
                         </div>

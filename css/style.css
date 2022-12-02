@@ -32,7 +32,7 @@ main {
 }
 
 /* sezione contatti */
-#contatti {
+.contatti {
     width: 400px;
     border-right: 1px solid rgb(185, 185, 185);
 }
@@ -158,7 +158,7 @@ main {
 }
 
 /* sezione chat */
-#chat {
+.chat_section {
     flex-grow: 1;
 }
 
@@ -223,7 +223,7 @@ main {
 /* tablet version */
 @media screen and (max-width: 1060px) {
 
-    #contatti {
+    .contatti {
         width: 200px;
     }
 
@@ -266,25 +266,8 @@ main {
 
 @media screen and (max-width: 590px) {
 
-    .avatar_img {
-        width: 40px;
-        height: 40px; 
-    }
-
-    #contatti {
-        width: 100px;
-    }
-
-    #search_bar {
-        display: none;
-    }
-
-    #lista_chat {
-        height: calc(100% - 60px);
-    }
-
-    .chat {
-        display: block;
+    .contatti {
+        width: 100%;
     }
 
     .icons.top {
@@ -298,19 +281,20 @@ main {
     .start {
         height: calc(100% - 60px);
     }
-    .last_mex {
-        display: none;
-    }
-
+  
     .message {
         width: 100px;
     }
 
-    .mex {
-        margin-bottom: 20px
+    .active {
+        display: block;
     }
 
-    .last_mex_date {
+    .hidden {
         display: none;
+    }
+
+    .mex {
+        margin-bottom: 20px
     }
 }
