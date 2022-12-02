@@ -63,19 +63,20 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
 
-                        <input class="user_input" type="text" placeholder="cerca o inizia una nuova chat">
+                        <input class="user_input" type="text" placeholder="cerca o inizia una nuova chat" v-model="newSearch">
                         
                     </div>
 
                     <!-- lista chat -->
                     <div id="lista_chat">
 
-                        <div class="chats" v-for="(contact,index) in contacts" @click="currentChat(index)">
+                        <div class="chat" v-for="(contact,index) in ricerca" @click="currentChat(index)">
                             <img class="avatar_img contact" :src="contact.image" alt="contact.name">
 
                             <div class="text">
                                 <h4>{{contact.name}}</h4>
-                                <span>Ultimo messaggio inviato</span>
+                                <span class="last_mex">{{contact.messages[contact.messages.length - 1].message}}</span>
+                                <span class="last_mex_date">{{contact.messages[contact.messages.length - 1].date}}</span>
                             </div>
                         </div>
 
@@ -117,7 +118,7 @@
                     </div>
 
                     <!-- sendbar -->
-                    <div class="bar" v-if="active > 0">
+                    <div class="bar" v-show="active > 0">
 
                         <div class="icons bottom">
                             <i class="fa-regular fa-face-smile"></i>

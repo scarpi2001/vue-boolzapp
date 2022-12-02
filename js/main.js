@@ -5,6 +5,7 @@ data() {
     return {
         active: 0,
         newMessage: "",
+        newSearch: "",
         contacts: [
             {
                 name: 'Boolzapp Web',
@@ -22,7 +23,6 @@ data() {
             },
             {
                 name: 'Michele',
-                avatar: '_1',
                 visible: false,
                 image: 'img/avatar_1.jpg',
                 lastSeen: 'Ultimo accesso alle 12:00',
@@ -46,7 +46,6 @@ data() {
             },
             {
                 name: 'Fabio',
-                avatar: '_2',
                 visible: true,
                 image: 'img/avatar_2.jpg',
                 lastSeen: 'Ultimo accesso alle 12:00',
@@ -70,7 +69,6 @@ data() {
             },
             {
                 name: 'Samuele',
-                avatar: '_3',
                 visible: true,
                 image: 'img/avatar_3.jpg',
                 lastSeen: 'Ultimo accesso alle 12:00',
@@ -94,7 +92,6 @@ data() {
             },
             {
                 name: 'Alessandro B.',
-                avatar: '_4',
                 visible: true,
                 image: 'img/avatar_4.jpg',
                 lastSeen: 'Ultimo accesso alle 12:00',
@@ -110,9 +107,90 @@ data() {
                         status: 'received'
                     }
                 ],
+            },
+            {
+                name: 'Alessandro L.',
+                visible: true,
+                image: 'img/avatar_1.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ricordati di chiamare la nonna',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Va bene, stasera la sento',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Claudia',
+                visible: true,
+                image: 'img/avatar_6.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ciao Claudia, hai novità?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Non ancora',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:51:00',
+                        message: 'Nessuna nuova, buona nuova',
+                        status: 'sent'
+                    }
+                ],
+            },
+            {
+                name: 'Federico',
+                visible: true,
+                image: 'img/avatar_2.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Davide',
+                visible: true,
+                image: 'img/avatar_4.jpg',
+                lastSeen: 'Ultimo accesso alle 12:00',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:51:00',
+                        message: 'OK!!',
+                        status: 'received'
+                    }
+                ],
             }
         ]
-        
     }   
 },
 
@@ -150,8 +228,20 @@ methods: {
             },
     
         );
-    }
+    },
 
+},
+
+computed: {
+    ricerca() {
+        if (this.newSearch) {
+            return this.contacts.filter((element) => {
+                return this.newSearch.toLowerCase().split(" ").every(v => element.name.toLowerCase().includes(v))
+            })
+        } else {
+            return this.contacts;
+        }
+    }
 }
 
 }).mount('#app')

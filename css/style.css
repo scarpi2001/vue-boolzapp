@@ -24,7 +24,7 @@ main {
 #wrapper {
     display: flex;
     height: calc(100vh - 100px);
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     border: 1px solid grey;
     position: relative;
@@ -33,7 +33,7 @@ main {
 
 /* sezione contatti */
 #contatti {
-    min-width: 500px;
+    width: 400px;
     border-right: 1px solid rgb(185, 185, 185);
 }
 
@@ -129,18 +129,32 @@ main {
     height: calc(100% - 195px);
     overflow-y: auto;
     background-color: #fff;
+    border-top: 1px solid rgb(185, 185, 185);
 }
 
-.chats {
+.chat {
     display: flex;
     padding: 15px;
     border-bottom: 1px solid rgb(225, 225, 225);
-    
+    position: relative;
 }
 
-.chats:hover {
+.chat:hover {
     background-color: rgb(233, 235, 235);
     cursor: pointer;
+}
+
+.last_mex {
+    font-size: 12px;
+    color: grey;
+}
+
+.last_mex_date {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: grey;
 }
 
 /* sezione chat */
@@ -192,6 +206,7 @@ main {
     position: absolute;
     right: 5px;
     bottom: 2px;
+    text-align: end;
 }
 
 /* sendbar */
@@ -203,3 +218,99 @@ main {
     width: 10%;
 }
 
+/* RESPONSIVE */
+
+/* tablet version */
+@media screen and (max-width: 1060px) {
+
+    #contatti {
+        width: 200px;
+    }
+
+    #wrapper {
+        max-width: 1600px;   
+    }
+
+    #notifiche {
+        display: none;
+    }
+
+    #lista_chat {
+        height: calc(100% - 115px);
+    }
+
+    .message {
+        width: 200px;
+    }
+
+}
+
+@media screen and (max-width: 760px) {
+
+    .icons.top {
+        width: 50px;
+        font-size: 15px;
+    }
+
+    .chat_content {
+        padding: 20px 10px;
+    }
+
+    .message {
+        width: 150px;
+    }
+
+}
+
+/* smartphone version */
+
+@media screen and (max-width: 590px) {
+
+    .avatar_img {
+        width: 40px;
+        height: 40px; 
+    }
+
+    #contatti {
+        width: 100px;
+    }
+
+    #search_bar {
+        display: none;
+    }
+
+    #lista_chat {
+        height: calc(100% - 60px);
+    }
+
+    .chat {
+        display: block;
+    }
+
+    .icons.top {
+        display: none;
+    }
+
+    .chat_content {
+        height: calc(100% - 135px);  
+    }
+
+    .start {
+        height: calc(100% - 60px);
+    }
+    .last_mex {
+        display: none;
+    }
+
+    .message {
+        width: 100px;
+    }
+
+    .mex {
+        margin-bottom: 20px
+    }
+
+    .last_mex_date {
+        display: none;
+    }
+}
