@@ -212,7 +212,7 @@ methods: {
             this.contacts[index].messages.push(
 
                 {   
-                    //date: Date(),
+                    date: new Date().toLocaleString(),
                     message: this.newMessage,
                     status: 'sent'
                 },
@@ -232,7 +232,7 @@ methods: {
         this.contacts[index].messages.push(
 
             {   
-                //date: Date(),
+                date: new Date().toLocaleString(),
                 message: 'Vabene',
                 status: 'received'
             },
